@@ -45,8 +45,8 @@ export default function MyPlanPage() {
               key={t.key}
               onClick={() => setTab(t.key)}
               className={`px-4 py-3 text-sm font-bold uppercase tracking-wide transition ${tab === t.key
-                  ? "border-b-2 border-accent text-accent"
-                  : "text-muted hover:text-white"
+                ? "border-b-2 border-accent text-accent"
+                : "text-muted hover:text-white"
                 }`}
             >
               {t.label}
@@ -62,8 +62,10 @@ export default function MyPlanPage() {
           <SortDropdown value={sortBy} onChange={setSortBy} />
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {!hydrated && <Loader label="Loading workouts…" />}
+        <div className="mt-10 flex flex-col gap-6">
+          {!hydrated &&
+            <Loader label="Loading workouts…" />
+          }
 
           {hydrated &&
             sorted.map((workout) => (
