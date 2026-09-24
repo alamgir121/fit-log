@@ -35,6 +35,38 @@ export default function MyPlanPage() {
         <p className="mt-7 max-w-xl text-base font-medium leading-7 text-white md:text-lg">
           Cap of five lifts for today. Finish them, then load more.
         </p>
+        <div className="mt-8 grid grid-cols-3 gap-4">
+          <div className="card p-5 text-center">
+            <p className="font-display text-3xl font-bold text-accent">
+              {list.length}
+            </p>
+
+            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
+              Exercises
+            </p>
+          </div>
+
+          <div className="card p-5 text-center">
+            <p className="font-display text-3xl font-bold text-accent">
+              {totals.minutes}
+            </p>
+
+            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
+              Minutes
+            </p>
+          </div>
+
+          <div className="card p-5 text-center">
+            <p className="font-display text-3xl font-bold text-accent">
+              {totals.calories}
+            </p>
+
+            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
+              Calories
+            </p>
+          </div>
+        </div>
+
 
         <div className="mt-10 flex gap-2 border-b border-line">
           {[
@@ -77,6 +109,7 @@ export default function MyPlanPage() {
             ))}
         </div>
 
+        
         {hydrated && list.length === 0 && (
           <div className="card mt-6 flex flex-col items-center gap-3 px-6 py-20 text-center">
             <h2 className="font-display text-xl font-bold uppercase tracking-wide">
@@ -93,37 +126,7 @@ export default function MyPlanPage() {
           </div>
         )}
 
-        <div className="mt-8 grid grid-cols-3 gap-4">
-          <div className="card p-5 text-center">
-            <p className="font-display text-3xl font-bold text-accent">
-              {list.length}
-            </p>
-
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
-              Exercises
-            </p>
-          </div>
-
-          <div className="card p-5 text-center">
-            <p className="font-display text-3xl font-bold text-accent">
-              {totals.minutes}
-            </p>
-
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
-              Minutes
-            </p>
-          </div>
-
-          <div className="card p-5 text-center">
-            <p className="font-display text-3xl font-bold text-accent">
-              {totals.calories}
-            </p>
-
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
-              Calories
-            </p>
-          </div>
-        </div>
+        
       </section>
     </div>
   );
