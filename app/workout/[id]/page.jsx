@@ -23,7 +23,8 @@ export default async function WorkoutDetailPage({ params }) {
   }
 
   return (
-    <section className="container-x py-12 md:py-16">
+    <div className="container mx-auto">
+      <section className="container-x py-12 md:py-16">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div className="relative aspect-square w-full overflow-hidden rounded-xl2 border border-line">
           <Image
@@ -86,5 +87,6 @@ export default async function WorkoutDetailPage({ params }) {
         </div>
       </div>
     </section>
+    </div>
   );
 }
