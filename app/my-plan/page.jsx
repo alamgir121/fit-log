@@ -19,7 +19,7 @@ export default function MyPlanPage() {
     return [...list].sort((a, b) => b[sortBy] - a[sortBy]);
   }, [list, sortBy]);
 
-  const totals = plan.reduce(
+  const totals = list.reduce(
     (acc, w) => ({
       minutes: acc.minutes + w.duration,
       calories: acc.calories + w.caloriesBurned,
@@ -96,7 +96,7 @@ export default function MyPlanPage() {
         <div className="mt-8 grid grid-cols-3 gap-4">
           <div className="card p-5 text-center">
             <p className="font-display text-3xl font-bold text-accent">
-              {plan.length}
+              {list.length}
             </p>
 
             <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
