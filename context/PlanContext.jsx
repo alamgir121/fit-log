@@ -39,29 +39,30 @@ export function PlanProvider({ children }) {
   }, [saved, hydrated]);
 
   function addToPlan(workout) {
-    setPlan((prev) => {
-      if (prev.some((w) => w.id === workout.id)) {
-        toast("Already in today's plan");
-        return prev;
-      }
-      if (prev.length >= PLAN_CAP) {
-        toast.error("Plan is full (5 lifts max)");
-        return prev;
-      }
-      toast.success("Added to today's plan");
-      return [...prev, { ...workout, done: false }];
-    });
+    if (plan.some((w) => w.id === workout.id)) {
+      toast("Already in today's plan");
+      return;
+    }
+
+    if (plan.length >= PLAN_CAP) {
+      toast.error("Plan is full (5 lifts max)");
+      return;
+    }
+
+    setPlan((prev) => [...prev, { ...workout, done: false }]);
+
+    toast.success("Added to today's plan");
   }
 
   function saveForLater(workout) {
-    setSaved((prev) => {
-      if (prev.some((w) => w.id === workout.id)) {
-        toast("Already saved");
-        return prev;
-      }
-      toast.success("Saved for later");
-      return [...prev, workout];
-    });
+    if (saved.some((w) => w.id === workout.id)) {
+      toast("Already saved");
+      return;
+    }
+
+    setSaved((prev) => [...prev, workout]);
+
+    toast.success("Saved for later");
   }
 
   function removeFromPlan(id) {
