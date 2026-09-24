@@ -38,7 +38,7 @@ export default async function WorkoutDetailPage({ params }) {
 
         <div>
           <h1 className="section-heading">{workout.name}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
+          <p className="mt-7 max-w-xl text-base font-medium leading-7 text-white md:text-lg">
             {workout.description}
           </p>
 
